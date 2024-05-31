@@ -1,4 +1,2 @@
 def solution(my_string):
-    table=str.maketrans({'a':'', 'e':'', 'i':'', 'o':'', 'u':''})
-    return my_string.translate(table)
-
+    return list(set(list(my_string))-set(list('aeiou')))
