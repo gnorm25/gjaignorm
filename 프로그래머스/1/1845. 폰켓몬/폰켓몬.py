@@ -5,3 +5,6 @@ def solution(nums):
         return len(nums)//2
     else: 
         return len(dkswnd)
+    
+# def solution(nums): 
+    
