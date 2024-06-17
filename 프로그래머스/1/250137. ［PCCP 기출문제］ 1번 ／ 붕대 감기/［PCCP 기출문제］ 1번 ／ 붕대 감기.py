@@ -1,24 +1,17 @@
 def solution(bandage, health, attacks):
     
     hp= health
-    count=0
+    start= 1
     
-    for x in range(1, attacks[-1][0]+1): 
-        if x==attacks[0][0]: 
-            hp-= attacks[0][1]
-            count= 0
-            attacks.pop(0)
-            if hp<=0: 
-                return -1
-        else: 
-            hp+= bandage[1]
-            count+= 1
-            if count==bandage[0]: 
-                hp+= bandage[2]
-                count= 0
+    for x, y in attacks: 
+        hp+= (x-start)*bandage[1]
+        hp+= ((x-start)//bandage[0])*bandage[2]
+        start= x+1
         if hp>health: 
-            hp= health
+            hp=health
+        hp-= y
+        if hp<=0: 
+            return -1
     return hp
-            
             
         
